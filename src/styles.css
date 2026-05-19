@@ -1693,3 +1693,226 @@ svg{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-lin
   top:-8px !important;
   left:18px !important;
 }
+@media(max-width:600px){
+
+  .hero{
+    min-height:auto !important;
+    padding-bottom:38px !important;
+    background-position:center top !important;
+  }
+
+  .hero-logo{
+    font-size:105px !important;
+    margin-top:70px !important;
+    line-height:.8 !important;
+  }
+
+  .hero-copy{
+    margin-top:34px !important;
+    padding:0 10px !important;
+  }
+
+  .hero-copy span{
+    width:100% !important;
+    max-width:100% !important;
+    font-size:18px !important;
+    line-height:1.35 !important;
+    padding:10px 12px !important;
+    margin:0 auto 8px !important;
+  }
+
+  .first-bg{
+    padding-top:28px !important;
+    margin-top:0 !important;
+  }
+
+  .intro-block{
+    margin:0 12px !important;
+    padding:28px 20px !important;
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:30px !important;
+  }
+
+  .video{
+    height:auto !important;
+    aspect-ratio:16/9 !important;
+    margin-bottom:24px !important;
+  }
+
+  .model-img{
+    height:auto !important;
+    max-height:none !important;
+  }
+
+  .right-quote{
+    padding-left:0 !important;
+    border-left:0 !important;
+  }
+
+  .right-quote h1{
+    font-size:30px !important;
+    line-height:1.25 !important;
+    margin-bottom:26px !important;
+  }
+
+  .right-quote p{
+    font-size:17px !important;
+    line-height:1.5 !important;
+  }
+
+  .floating-whatsapp{
+    width:50px !important;
+    height:50px !important;
+    right:12px !important;
+    bottom:14px !important;
+  }
+
+  .floating-whatsapp svg{
+    width:30px !important;
+    height:30px !important;
+  }
+}
+/* ===== MOBILE FIX FINAL HOME ===== */
+@media(max-width:600px){
+
+  .topbar{
+    height:auto !important;
+  }
+
+  .topbar-inner{
+    height:auto !important;
+    min-height:0 !important;
+    display:flex !important;
+    flex-direction:column !important;
+    gap:7px !important;
+    padding:8px 10px !important;
+  }
+
+  .top-left,
+  .top-right{
+  width:100% !important;
+  display:grid !important;
+  grid-template-columns:1fr 1fr 1fr !important;
+  align-items:center !important;
+  gap:6px !important;
+  padding:0 6px !important;
+}
+
+.top-right span,
+.top-right a{
+  font-size:10px !important;
+  line-height:1.15 !important;
+  gap:4px !important;
+  white-space:normal !important;
+  text-align:center !important;
+  justify-content:center !important;
+}
+
+.top-right svg{
+  flex:0 0 auto !important;
+}
+
+  .topbar a,
+  .topbar span{
+    font-size:11px !important;
+    line-height:1.15 !important;
+    gap:5px !important;
+    white-space:nowrap !important;
+  }
+
+  .topbar svg{
+    width:13px !important;
+    height:13px !important;
+  }
+
+  .header-inner{
+    padding:18px 10px 24px !important;
+    gap:18px !important;
+  }
+
+  .script-logo.small{
+    font-size:96px !important;
+  }
+
+  .brand-sub{
+    font-size:13px !important;
+    margin-top:20px !important;
+  }
+
+  .menu{
+    margin-top:20px !important;
+    display:flex !important;
+    justify-content:center !important;
+    gap:18px 24px !important;
+    font-size:18px !important;
+  }
+
+  .hero{
+    min-height:auto !important;
+    padding-bottom:26px !important;
+  }
+
+  .hero::after{
+    height:120px !important;
+  }
+
+  .hero-logo{
+    font-size:96px !important;
+    margin-top:70px !important;
+  }
+
+  .hero-copy{
+    margin-top:32px !important;
+    padding:0 10px !important;
+  }
+
+  .hero-copy span{
+    font-size:17px !important;
+    line-height:1.3 !important;
+    padding:9px 12px !important;
+  }
+
+  .first-bg{
+    padding-top:24px !important;
+    margin-top:0 !important;
+  }
+}
+@media(max-width:600px){
+
+  .topbar-inner{
+    height:auto !important;
+    min-height:0 !important;
+    padding:6px 8px !important;
+    gap:4px !important;
+  }
+
+  .top-left{
+    width:100% !important;
+    justify-content:center !important;
+    gap:16px !important;
+  }
+
+  .top-right{
+    width:100% !important;
+    display:flex !important;
+    justify-content:center !important;
+    align-items:center !important;
+    gap:12px !important;
+    overflow:hidden !important;
+  }
+
+  .top-right span{
+    font-size:10px !important;
+    white-space:nowrap !important;
+  }
+
+  .top-right a{
+    font-size:10px !important;
+    white-space:nowrap !important;
+  }
+
+  .top-right a[href^="tel:"]{
+    display:none !important;
+  }
+}

@@ -184,7 +184,7 @@ function Contact(){
           <p>C/ Ronda Ancha 12, Alcalá de Henares</p>
           <div className="contact-row">
             <div><h3>LLÁMANOS</h3><p><a href="tel:+34659614980">659614980</a></p></div>
-            <div><h3>WHATSAPP</h3><p><a className="mini-whatsapp" href={WHATSAPP_URL} target="_blank" rel="noreferrer" style={{ marginLeft: '40px' }}><IconWhats/></a></p></div>
+            <div><h3>WHATSAPP</h3><p><a className="mini-whatsapp" href={WHATSAPP_URL} target="_blank" rel="noreferrer"><IconWhats/></a></p></div>
           </div>
           <h3>ESCRÍBENOS</h3>
           <p><a href="mailto:info@egoacademy.es">info@egoacademy.es</a></p>
