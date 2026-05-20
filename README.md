@@ -110,3 +110,5 @@ Página de instalaciones ajustada con hero superior, vídeo de instalaciones y g
 - Las barras laterales del item "Nuestros cursos" ya no se pisan.
 - Flecha corregida y alineada.
 - Submenú mantiene zona segura sin usar el mismo pseudo-elemento de las barras.
+
+Deploy limpio 05/20/2026 13:33:42
