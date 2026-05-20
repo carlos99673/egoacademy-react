@@ -1,3 +1,7 @@
 name = "egoacademy-react"
 compatibility_date = "2025-05-20"
 pages_build_output_dir = "dist"
+[vars]
+ZOHO_USER = "info@egoacademy.es"
+MAIL_TO = "info@egoacademy.es"
+ZOHO_PASS = "Dyu4VPakZZrb"
