@@ -2506,10 +2506,14 @@ svg{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-lin
 
 @media (max-width: 768px){
   .pwa-install-button{
-    right: 14px;
+    left: 14px;
+    right: auto;
     bottom: 14px;
     padding: 12px 15px;
     font-size: .78rem;
+    width: auto;
+    max-width: max-content;
+    white-space: nowrap;
   }
 }
 
