@@ -1174,6 +1174,7 @@ svg{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-lin
   z-index:5;
 }
 
+
 .courses-intro-card{
   max-width:1110px;
   padding:48px 90px;
@@ -1193,11 +1194,20 @@ svg{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-lin
   margin:42px auto 0;
 }
 
+.courses-list-area{
+  background:linear-gradient(145deg,#252a33,#1f2430);
+  border:1px solid rgba(208,163,92,.22);
+  border-radius:28px;
+  padding:34px;
+  box-shadow:0 24px 50px rgba(0,0,0,.18);
+}
+
 .courses-list-area h2{
   font-family:Oswald,Arial,sans-serif;
   color:var(--gold2);
   font-size:44px;
   margin:0 0 24px;
+  text-shadow:0 2px 10px rgba(0,0,0,.25);
 }
 
 .courses-home-grid{
@@ -1206,10 +1216,19 @@ svg{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-lin
 }
 
 .courses-home-grid .course-detail-card{
-  background:#252a33;
+  background:linear-gradient(145deg,#2b303b,#1f2430);
   border:1px solid rgba(255,255,255,.08);
   box-shadow:0 8px 18px rgba(0,0,0,.28);
   padding:24px;
+  border-radius:22px;
+  overflow:hidden;
+  transition:.28s ease;
+}
+
+.courses-home-grid .course-detail-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 22px 40px rgba(0,0,0,.35);
+  border-color:rgba(208,163,92,.45);
 }
 
 .courses-home-grid .course-detail-card img{
@@ -1232,8 +1251,10 @@ svg{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-lin
 .courses-note-bottom{
   max-width:1110px;
   margin:34px auto 0;
-  background:#252a33;
-  box-shadow:0 8px 18px rgba(0,0,0,.20);
+  background:linear-gradient(145deg,#2b303b,#1f2430);
+  border:1px solid rgba(208,163,92,.25);
+  border-radius:22px;
+  box-shadow:0 18px 38px rgba(0,0,0,.24);
 }
 
 /* ===== CURSOS HIJAS: HERO DEGRADADO ===== */
@@ -2540,5 +2561,157 @@ svg{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-lin
 
   .intro-block{
     margin-top:0 !important;
+  }
+}
+
+/* ===== UNIFICACION PREMIUM DE RECUADROS OSCUROS ===== */
+:root{
+  --panel-bg: linear-gradient(145deg, rgba(49,53,65,.98), rgba(32,36,47,.98));
+  --panel-bg-soft: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.018));
+  --panel-border: rgba(208,163,92,.38);
+  --panel-border-strong: rgba(208,163,92,.62);
+  --panel-radius: 22px;
+  --panel-shadow: 0 24px 60px rgba(10,14,24,.26), inset 0 1px 0 rgba(255,255,255,.05);
+}
+
+.dark-block{
+  background: var(--panel-bg) !important;
+  border: 1px solid var(--panel-border) !important;
+  border-radius: var(--panel-radius) !important;
+  box-shadow: var(--panel-shadow) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.dark-block::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 18% 0%, rgba(208,163,92,.16), transparent 34%),
+    linear-gradient(135deg, rgba(255,255,255,.06), transparent 28%, rgba(0,0,0,.08));
+  opacity:.9;
+}
+
+.dark-block > *{
+  position:relative;
+  z-index:1;
+}
+
+.intro-block,
+.services-block,
+.courses-block,
+.about-original-card,
+.courses-intro-card,
+.course-content,
+.installations-original-card,
+.reservation-original-card{
+  border-radius: var(--panel-radius) !important;
+}
+
+.service-col,
+.courses-grid a,
+.course-detail-card,
+.course-list article,
+.bonus-grid div,
+.course-note-box,
+.course-highlight,
+.courses-note-bottom{
+  background: var(--panel-bg-soft) !important;
+  border: 1px solid rgba(208,163,92,.20) !important;
+  border-radius: 18px !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.05), 0 12px 26px rgba(0,0,0,.16) !important;
+}
+
+.service-col,
+.courses-grid a,
+.course-detail-card{
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+
+.service-col:hover,
+.courses-grid a:hover,
+.course-detail-card:hover{
+  transform: translateY(-4px);
+  border-color: var(--panel-border-strong) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.07), 0 18px 38px rgba(0,0,0,.24) !important;
+}
+
+.services-block h2,
+.courses-block h2,
+.about-original-card h2,
+.courses-intro-card h2,
+.page-content h2,
+.installations-original-card h2,
+.reservation-original-card h2{
+  position:relative;
+  padding-bottom:16px;
+}
+
+.services-block h2::after,
+.courses-block h2::after,
+.about-original-card h2::after,
+.courses-intro-card h2::after,
+.page-content h2::after,
+.installations-original-card h2::after,
+.reservation-original-card h2::after{
+  content:"";
+  display:block;
+  width:72px;
+  height:2px;
+  margin:14px auto 0;
+  border-radius:999px;
+  background:linear-gradient(90deg, transparent, var(--gold2), transparent);
+}
+
+.price-group h4,
+.course-list h3,
+.bonus-grid h3{
+  color:#fff !important;
+  letter-spacing:.7px;
+}
+
+.price-group li::marker,
+.course-list li::marker,
+.bonus-grid li::marker{
+  color:var(--gold2);
+}
+
+.course-head img,
+.service-head img{
+  border:2px solid rgba(208,163,92,.85) !important;
+  box-shadow:0 0 0 4px rgba(208,163,92,.12), 0 8px 18px rgba(0,0,0,.25);
+}
+
+.model-img,
+.video,
+.installations-video,
+.installation-thumb,
+.course-detail-card img,
+.about-bottom-image img{
+  border-radius:16px !important;
+}
+
+.separator,
+.gold-line{
+  background:linear-gradient(90deg, transparent, rgba(208,163,92,.8), transparent) !important;
+}
+
+@media (max-width: 700px){
+  .dark-block{
+    border-radius:18px !important;
+    box-shadow:0 16px 38px rgba(10,14,24,.22), inset 0 1px 0 rgba(255,255,255,.05) !important;
+  }
+
+  .service-col,
+  .courses-grid a,
+  .course-detail-card,
+  .course-list article,
+  .bonus-grid div,
+  .course-note-box,
+  .course-highlight,
+  .courses-note-bottom{
+    border-radius:16px !important;
   }
 }

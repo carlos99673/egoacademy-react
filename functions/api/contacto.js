@@ -1,5 +1,7 @@
-const ZOHO_AUTH_BASE = 'https://accounts.zoho.eu/oauth/v2/token';
-const ZOHO_MAIL_BASE = 'https://mail.zoho.eu/api/accounts';
+const BREVO_API_URL = 'https://api.brevo.com/v3/smtp/email';
+const DEFAULT_MAIL_TO = 'info@egoacademy.es';
+const DEFAULT_MAIL_FROM = 'info@egoacademy.es';
+const DEFAULT_FROM_NAME = 'ËGO Academy Web';
 
 function jsonResponse(body, status = 200) {
   return new Response(JSON.stringify(body), {
@@ -24,62 +26,63 @@ function normalize(value = '') {
   return String(value).trim();
 }
 
-async function getZohoAccessToken(env) {
-  const params = new URLSearchParams({
-    refresh_token: env.ZOHO_REFRESH_TOKEN,
-    client_id: env.ZOHO_CLIENT_ID,
-    client_secret: env.ZOHO_CLIENT_SECRET,
-    grant_type: 'refresh_token'
-  });
-
-  const response = await fetch(ZOHO_AUTH_BASE, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: params.toString()
-  });
-
-  const data = await response.json().catch(() => ({}));
-
-  if (!response.ok || !data.access_token) {
-    throw new Error(data.error || 'No se pudo obtener token de Zoho.');
-  }
-
-  return data.access_token;
-}
-
-async function sendZohoEmail(env, accessToken, form) {
+function buildEmailContent(form) {
   const nombre = escapeHtml(form.nombre);
   const email = escapeHtml(form.email);
   const telefono = escapeHtml(form.telefono);
   const curso = escapeHtml(form.curso);
   const mensaje = escapeHtml(form.mensaje || 'Sin mensaje adicional.').replaceAll('\n', '<br>');
 
-  const subject = `Nueva reserva desde egoacademy.es - ${form.nombre}`;
-  const html = `
-    <h2>Nueva reserva desde egoacademy.es</h2>
-    <table cellpadding="8" cellspacing="0" border="0" style="border-collapse:collapse;font-family:Arial,sans-serif">
-      <tr><td><strong>Nombre</strong></td><td>${nombre}</td></tr>
-      <tr><td><strong>Email</strong></td><td>${email}</td></tr>
-      <tr><td><strong>Teléfono</strong></td><td>${telefono}</td></tr>
-      <tr><td><strong>Curso/servicio</strong></td><td>${curso}</td></tr>
-      <tr><td><strong>Mensaje</strong></td><td>${mensaje}</td></tr>
-    </table>
+  return `
+    <div style="font-family:Arial,sans-serif;background:#f6f1eb;padding:24px;color:#121d31">
+      <div style="max-width:640px;margin:0 auto;background:#ffffff;border:1px solid #d7ad61;border-radius:18px;overflow:hidden">
+        <div style="background:#121d31;color:#d7ad61;padding:22px 26px">
+          <h1 style="margin:0;font-size:22px">Nueva reserva desde egoacademy.es</h1>
+        </div>
+        <div style="padding:24px 26px">
+          <p style="margin-top:0">Han enviado una nueva solicitud desde el formulario de reserva.</p>
+          <table cellpadding="8" cellspacing="0" border="0" style="border-collapse:collapse;width:100%;font-size:15px">
+            <tr><td style="font-weight:bold;width:160px">Nombre</td><td>${nombre}</td></tr>
+            <tr><td style="font-weight:bold">Email</td><td>${email}</td></tr>
+            <tr><td style="font-weight:bold">Teléfono</td><td>${telefono}</td></tr>
+            <tr><td style="font-weight:bold">Curso/servicio</td><td>${curso}</td></tr>
+            <tr><td style="font-weight:bold;vertical-align:top">Mensaje</td><td>${mensaje}</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
   `;
+}
+
+async function sendBrevoEmail(env, form) {
+  const mailTo = env.MAIL_TO || DEFAULT_MAIL_TO;
+  const mailFrom = env.MAIL_FROM || DEFAULT_MAIL_FROM;
+  const fromName = env.MAIL_FROM_NAME || DEFAULT_FROM_NAME;
 
   const payload = {
-    fromAddress: env.ZOHO_FROM || env.MAIL_TO || 'info@egoacademy.es',
-    toAddress: env.MAIL_TO || 'info@egoacademy.es',
-    subject,
-    content: html,
-    mailFormat: 'html',
-    replyTo: form.email
+    sender: {
+      name: fromName,
+      email: mailFrom
+    },
+    to: [
+      {
+        email: mailTo,
+        name: 'ËGO Academy'
+      }
+    ],
+    replyTo: {
+      email: form.email,
+      name: form.nombre
+    },
+    subject: `Nueva reserva desde egoacademy.es - ${form.nombre}`,
+    htmlContent: buildEmailContent(form)
   };
 
-  const response = await fetch(`${ZOHO_MAIL_BASE}/${env.ZOHO_ACCOUNT_ID}/messages`, {
+  const response = await fetch(BREVO_API_URL, {
     method: 'POST',
     headers: {
-      Authorization: `Zoho-oauthtoken ${accessToken}`,
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'api-key': env.BREVO_API_KEY
     },
     body: JSON.stringify(payload)
   });
@@ -87,7 +90,8 @@ async function sendZohoEmail(env, accessToken, form) {
   const data = await response.json().catch(() => ({}));
 
   if (!response.ok) {
-    throw new Error(data?.data?.moreInfo || data?.message || 'Zoho no pudo enviar el correo.');
+    const detail = data?.message || data?.code || 'Brevo no pudo enviar el correo.';
+    throw new Error(detail);
   }
 
   return data;
@@ -97,10 +101,11 @@ export async function onRequestPost(context) {
   try {
     const { request, env } = context;
 
-    const requiredEnv = ['ZOHO_CLIENT_ID', 'ZOHO_CLIENT_SECRET', 'ZOHO_REFRESH_TOKEN', 'ZOHO_ACCOUNT_ID'];
-    const missing = requiredEnv.filter((key) => !env[key]);
-    if (missing.length) {
-      return jsonResponse({ ok: false, error: `Faltan variables en Cloudflare: ${missing.join(', ')}` }, 500);
+    if (!env.BREVO_API_KEY) {
+      return jsonResponse({
+        ok: false,
+        error: 'Falta configurar BREVO_API_KEY en Cloudflare.'
+      }, 500);
     }
 
     const body = await request.json().catch(() => null);
@@ -128,8 +133,7 @@ export async function onRequestPost(context) {
       return jsonResponse({ ok: false, error: 'El email no tiene un formato válido.' }, 400);
     }
 
-    const accessToken = await getZohoAccessToken(env);
-    await sendZohoEmail(env, accessToken, form);
+    await sendBrevoEmail(env, form);
 
     return jsonResponse({ ok: true });
   } catch (error) {

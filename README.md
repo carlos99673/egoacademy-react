@@ -112,3 +112,8 @@ Página de instalaciones ajustada con hero superior, vídeo de instalaciones y g
 - Submenú mantiene zona segura sin usar el mismo pseudo-elemento de las barras.
 
 Deploy limpio 05/20/2026 13:33:42
+
+## Formulario de reserva
+
+Esta versión usa Cloudflare Pages Functions + Brevo para enviar las reservas por email.
+Consulta `docs/CONFIGURAR_FORMULARIO_BREVO_CLOUDFLARE.md`.
