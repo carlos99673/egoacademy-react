@@ -137,6 +137,7 @@ svg{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-lin
 .contact-text h2{font-family:Oswald,Arial,sans-serif;font-weight:400;letter-spacing:3px;color:var(--gold2);font-size:42px;margin:0 0 18px}
 .contact-text h3{font-family:Oswald,Arial,sans-serif;font-weight:400;letter-spacing:2px;color:var(--gold2);font-size:25px;margin:22px 0 10px}
 .contact-text p{font-size:18px;margin:0 0 14px}
+<<<<<<< HEAD
 .contact-row{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -162,6 +163,9 @@ svg{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-lin
   margin-top:10px;
   line-height:1.4;
 }
+=======
+.contact-row{display:grid;grid-template-columns:1fr 1fr;gap:25px}
+>>>>>>> 67c290eecd697d3136efbf0e77c781a8aad26cd2
 .mini-whatsapp{width:40px;height:40px;border-radius:50%;background:#25d366;color:#fff;display:inline-grid;place-items:center}
 .mini-whatsapp svg{width:28px;height:28px}
 .contact-card iframe{width:100%;height:100%;border:0;min-height:560px}
@@ -1939,6 +1943,7 @@ svg{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-lin
   .top-right a[href^="tel:"]{
     display:none !important;
   }
+<<<<<<< HEAD
 }
 /* ===== CORRECCION MOVIL REAL: TOPBAR Y SUBMENU CURSOS ===== */
 @media (max-width: 700px){
@@ -2538,3 +2543,6 @@ svg{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-lin
     margin-top:0 !important;
   }
 }
+=======
+}
+>>>>>>> 67c290eecd697d3136efbf0e77c781a8aad26cd2
