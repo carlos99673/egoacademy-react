@@ -271,7 +271,7 @@ function AboutPage(){
 
           <div className="gold-line"></div>
 
-          <img className="about-bottom-image" src="/sobre-nosotros/peluqueria-bn.png" alt="Academia de peluquería y estética Ëgo"/>
+          <img className="about-bottom-image" src="/sobre-nosotros/peluqueriabn.png" alt="Academia de peluquería y estética Ëgo"/>
         </div>
       </section>
     </SharedPageShell>
