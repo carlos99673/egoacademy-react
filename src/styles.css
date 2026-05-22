@@ -1233,6 +1233,10 @@ svg{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-lin
 
 .courses-home-grid .course-detail-card img{
   height:170px;
+  width:100%;
+  object-fit:cover;
+  display:block;
+  border-radius:18px;
 }
 
 .courses-home-grid .course-detail-card h3{
@@ -1310,6 +1314,37 @@ svg{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-lin
 .course-content{
   margin-top:35px !important;
 }
+
+/* ===== ESPACIADO Y CONSISTENCIA GLOBAL ===== */
+
+.course-child-title-badge,
+.installations-title-badge,
+.reservation-title-badge,
+.about-title-badge,
+.courses-title-badge{
+  border-radius:0 !important;
+  min-height:84px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  padding:16px 38px !important;
+}
+
+.course-child-hero,
+.installations-hero-original,
+.reservation-hero-original,
+.about-hero-original,
+.courses-hero-original{
+  margin-bottom:-80px !important;
+}
+
+.page-content.course-content,
+.installations-original-card,
+.about-original-card,
+.courses-intro-card{
+  margin-top:35px !important;
+}
+
 
 @media(max-width:900px){
   .about-original-card,
@@ -2713,5 +2748,21 @@ svg{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-lin
   .course-highlight,
   .courses-note-bottom{
     border-radius:16px !important;
+  }
+}
+/* ===== FIX RESERVA: MISMO ESPACIO ENTRE BANNER Y PANEL ===== */
+
+.reservation-main-section{
+  padding-top: 52px !important;
+}
+
+.reservation-original-card{
+  margin-top: 0 !important;
+}
+
+/* Móvil */
+@media (max-width: 700px){
+  .reservation-main-section{
+    padding-top: 38px !important;
   }
 }
