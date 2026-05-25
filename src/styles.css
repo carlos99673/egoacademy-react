@@ -85,7 +85,7 @@ svg{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-lin
   line-height:1.35;
 }
 
-.page-bg{background:var(--page);padding:45px 20px 35px}
+.page-bg{background:var(--page);padding:20px 20px 35px;}
 .first-bg{
   padding-top:0;
   margin-top:-110px;
@@ -113,8 +113,45 @@ svg{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-lin
 .separator{height:1px;background:#777b84;margin-bottom:32px}
 .right-quote p{font-size:19px;line-height:1.55;margin:0 0 20px}
 
-.services-block{padding:38px 54px 54px;border:1px solid rgba(183,138,67,.45)}
-.services-block h2,.courses-block h2{font-family:Oswald,Arial,sans-serif;font-size:37px;color:var(--gold2);text-align:center;margin:0 0 18px}
+.seo-text-block{
+  color:rgba(255,255,255,.035);
+  opacity:.045;
+  font-size:11px;
+  line-height:1.3;
+  margin-top:16px;
+  user-select:none;
+  pointer-events:none;
+}
+.services-block{
+  position:relative;
+  width:min(1120px, calc(100% - 48px));
+  margin:0 auto;
+  padding:42px 42px 46px;
+  border-radius:26px;
+  border:1px solid rgba(212,169,92,.34);
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.14), rgba(12,20,45,.96)),
+    radial-gradient(circle at top left, rgba(255,255,255,.18), transparent 46%);
+  box-shadow:0 28px 60px rgba(0,0,0,.32);
+  backdrop-filter:blur(7px);
+}
+.services-intro{
+  max-width:920px;
+  margin:0 auto 38px;
+  text-align:center;
+  color:var(--gold2);
+  font-size:20px;
+  line-height:1.75;
+  font-family:'Alegreya Sans', sans-serif;
+}
+
+.services-block h2{
+  font-family:Oswald, sans-serif;
+  font-size:54px;
+  color:var(--gold2);
+  text-align:center;
+  margin-bottom:18px;
+}
 .services-intro{text-align:center;font-size:18px;line-height:1.55;max-width:900px;margin:0 auto 38px}
 .services-columns{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .service-col{padding:26px 28px;background:rgba(0,0,0,.15);border-radius:2px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.04)}
@@ -2765,4 +2802,792 @@ svg{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-lin
   .reservation-main-section{
     padding-top: 38px !important;
   }
+}
+
+
+/* ===== RESERVAS HIBRIDAS: EMAIL + WHATSAPP ===== */
+.quick-reservation-section{
+  background:var(--page);
+  padding:28px 20px 12px;
+  position:relative;
+  z-index:12;
+}
+
+.quick-reservation-card{
+  max-width:1110px;
+  margin:0 auto;
+  padding:30px 34px;
+  display:grid;
+  grid-template-columns:1.35fr auto;
+  gap:28px;
+  align-items:center;
+}
+
+.quick-kicker,
+.reservation-kicker{
+  display:inline-flex;
+  color:var(--gold2);
+  font-family:Oswald,Arial,sans-serif;
+  letter-spacing:1.8px;
+  text-transform:uppercase;
+  font-size:15px;
+  margin-bottom:8px;
+}
+
+.quick-reservation-card h2{
+  margin:0 0 8px;
+  color:var(--gold2);
+  font-family:Oswald,Arial,sans-serif;
+  font-size:34px;
+  letter-spacing:1px;
+}
+
+.quick-reservation-card p{
+  margin:0;
+  color:#fff;
+  font-size:18px;
+  line-height:1.55;
+}
+
+.quick-reservation-actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+
+.quick-main-btn,
+.quick-secondary-btn,
+.reservation-whatsapp-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:46px;
+  padding:12px 20px;
+  border-radius:999px;
+  font-family:Oswald,Arial,sans-serif;
+  text-transform:uppercase;
+  letter-spacing:.8px;
+  font-size:16px;
+  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.quick-main-btn{
+  background:linear-gradient(135deg,#c79647,#e2b66d);
+  color:#121d31;
+  box-shadow:0 12px 26px rgba(0,0,0,.24);
+}
+
+.quick-secondary-btn,
+.reservation-whatsapp-link{
+  border:1px solid rgba(208,163,92,.55);
+  color:#fff;
+  background:rgba(255,255,255,.04);
+}
+
+.quick-main-btn:hover,
+.quick-secondary-btn:hover,
+.reservation-whatsapp-link:hover{
+  transform:translateY(-2px);
+}
+
+.reservation-form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.reservation-whatsapp-link{
+  width:100%;
+  margin-top:4px;
+  background:#25d366;
+  border-color:#25d366;
+  color:#082d18;
+  font-weight:800;
+}
+
+.reservation-original-card .reservation-kicker{
+  display:flex;
+  justify-content:center;
+}
+
+@media (max-width: 800px){
+  .quick-reservation-card{
+    grid-template-columns:1fr;
+    text-align:center;
+    padding:28px 22px;
+  }
+
+  .quick-reservation-actions{
+    justify-content:center;
+  }
+
+  .reservation-form-grid{
+    grid-template-columns:1fr;
+    gap:0;
+  }
+}
+
+@media (max-width: 700px){
+  .quick-reservation-section{
+    padding:18px 12px 8px;
+  }
+
+  .quick-reservation-card h2{
+    font-size:28px;
+  }
+
+  .quick-reservation-card p{
+    font-size:16px;
+  }
+
+  .quick-main-btn,
+  .quick-secondary-btn{
+    width:100%;
+  }
+}
+/* ===== FIX FINAL HOME RESERVA RAPIDA ===== */
+
+@media (min-width: 701px){
+  .quick-reservation-section{
+    padding-top: 0 !important;
+    padding-bottom: 26px !important;
+    margin-top: -18px !important;
+    position: relative !important;
+    z-index: 30 !important;
+  }
+
+  .quick-reservation-card{
+    margin-top: 0 !important;
+    margin-bottom: 40px !important;
+    max-width: 1110px !important;
+  }
+
+  .first-bg{
+    padding-top: 28px !important;
+    margin-top: 0 !important;
+    position: relative !important;
+    z-index: 10 !important;
+  }
+}
+
+@media (max-width: 700px){
+  .quick-reservation-section{
+    padding: 18px 20px 24px !important;
+    margin: 0 !important;
+  }
+
+  .quick-reservation-card{
+    max-width: 100% !important;
+    width: 100% !important;
+    border-radius: 18px !important;
+  }
+
+  .intro-block{
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+  }
+
+  .reservation-title-badge{
+    width: fit-content !important;
+    max-width: 86vw !important;
+    font-size: 26px !important;
+    line-height: 1.25 !important;
+    padding: 14px 22px !important;
+    text-align: left !important;
+  }
+}
+
+/* ===== FIX FINAL HOME MOBILE CONSISTENCY ===== */
+
+.home-services-preview{
+  margin-top: 24px !important;
+}
+
+.services-preview-actions{
+  display:flex;
+  justify-content:center;
+  margin-top:28px;
+}
+
+.services-preview-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:48px;
+  padding:14px 26px;
+  border-radius:999px;
+  background:linear-gradient(135deg,#c79647,#e2b66d);
+  color:#121d31;
+  font-family:Oswald,Arial,sans-serif;
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+
+@media (max-width:700px){
+
+  .quick-reservation-section,
+  .intro-section,
+  .courses-section{
+    padding-left:18px !important;
+    padding-right:18px !important;
+    box-sizing:border-box !important;
+  }
+
+  .quick-reservation-card,
+  .intro-block,
+  .courses-block,
+  .home-services-preview{
+    width:100% !important;
+    max-width:100% !important;
+    margin-left:0 !important;
+    margin-right:0 !important;
+    box-sizing:border-box !important;
+  }
+
+  .quick-reservation-card,
+  .intro-block,
+  .courses-block{
+    border-radius:18px !important;
+  }
+
+  .intro-section,
+  .courses-section{
+    margin-top:22px !important;
+  }
+}
+/* ===== FIX HOME: MENOS HUECO ENTRE SECCIONES ===== */
+
+.quick-reservation-section{
+  padding-bottom: 18px !important;
+}
+
+.first-bg{
+  padding-top: 18px !important;
+}
+
+@media (min-width: 701px){
+  .quick-reservation-section{
+    padding-top: 18px !important;
+    padding-bottom: 22px !important;
+  }
+
+  .first-bg{
+    padding-top: 18px !important;
+    margin-top: 0 !important;
+  }
+
+  .quick-reservation-card{
+    margin-bottom: 0 !important;
+  }
+}
+
+@media (max-width: 700px){
+  .quick-reservation-section{
+    padding-bottom: 18px !important;
+  }
+
+  .first-bg{
+    padding-top: 18px !important;
+  }
+}
+/* ===== MENU ESCRITORIO EN UNA SOLA LINEA ===== */
+
+@media (min-width: 901px){
+  .header-inner{
+    max-width: 1280px !important;
+    gap: 20px !important;
+  }
+
+  .brand{
+    min-width: 170px !important;
+    flex: 0 0 auto !important;
+  }
+
+  .script-logo.small{
+    font-size: 64px !important;
+  }
+
+  .brand-sub{
+    font-size: 10px !important;
+    margin-top: 12px !important;
+    letter-spacing: 1.4px !important;
+  }
+
+  .menu{
+    flex: 1 !important;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: flex-end !important;
+    gap: 20px !important;
+    font-size: 14px !important;
+    white-space: nowrap !important;
+  }
+
+  .menu a,
+  .menu .menu-link-with-arrow{
+    white-space: nowrap !important;
+  }
+}
+/* ===== HOME: ESPACIADO UNIFORME ENTRE BLOQUES ===== */
+
+@media (min-width: 701px){
+  .quick-reservation-section,
+  .first-bg,
+  .courses-section{
+    padding-top: 26px !important;
+    padding-bottom: 26px !important;
+  }
+
+  .quick-reservation-card,
+  .intro-block,
+  .courses-block,
+  .home-services-preview{
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+}
+
+@media (max-width: 700px){
+  .quick-reservation-section,
+  .first-bg,
+  .courses-section{
+    padding-top: 18px !important;
+    padding-bottom: 18px !important;
+  }
+
+  .quick-reservation-card,
+  .intro-block,
+  .courses-block,
+  .home-services-preview{
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+}
+/* ===== FIX DEFINITIVO MOVIL: MISMO HUECO ENTRE SECCIONES HOME ===== */
+
+@media (max-width: 700px){
+
+  .quick-reservation-section,
+  .first-bg,
+  .courses-section,
+  .contact-bg{
+    padding-top: 14px !important;
+    padding-bottom: 14px !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .quick-reservation-card,
+  .intro-block,
+  .courses-block,
+  .home-services-preview,
+  .contact-card{
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .quick-reservation-section + .first-bg,
+  .first-bg + .courses-section,
+  .courses-section + .courses-section,
+  .courses-section + .contact-bg{
+    padding-top: 14px !important;
+  }
+
+  .intro-block{
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+/* ===== HOME MOBILE SPACING FINAL ===== */
+
+@media (max-width: 700px){
+
+  .quick-reservation-section,
+  .first-bg,
+  .page-bg,
+  .courses-section,
+  .contact-bg{
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .quick-reservation-card,
+  .intro-block,
+  .courses-block,
+  .home-services-preview,
+  .contact-card{
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+}
+
+/* =========================================================
+   LIMPIEZA FINAL REAL - MENU, HOME Y PAGINA SERVICIOS
+   Mantener este bloque al FINAL del CSS.
+   ========================================================= */
+
+:root{
+  --panel-bg: linear-gradient(145deg, rgba(49,53,65,.98), rgba(32,36,47,.98));
+  --panel-bg-soft: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.018));
+  --panel-border: rgba(208,163,92,.38);
+  --panel-border-strong: rgba(208,163,92,.62);
+  --panel-radius: 22px;
+  --panel-shadow: 0 24px 60px rgba(10,14,24,.26), inset 0 1px 0 rgba(255,255,255,.05);
+}
+
+/* Menu desktop en una sola linea */
+@media (min-width: 901px){
+  .header-inner{
+    max-width:1320px !important;
+    gap:22px !important;
+  }
+
+  .brand{
+    min-width:170px !important;
+    flex:0 0 170px !important;
+  }
+
+  .script-logo.small{
+    font-size:64px !important;
+  }
+
+  .brand-sub{
+    font-size:10px !important;
+    margin-top:12px !important;
+    letter-spacing:1.35px !important;
+  }
+
+  .menu{
+    flex:1 1 auto !important;
+    display:flex !important;
+    flex-wrap:nowrap !important;
+    align-items:center !important;
+    justify-content:flex-end !important;
+    gap:18px !important;
+    font-size:14px !important;
+    white-space:nowrap !important;
+  }
+
+  .menu a,
+  .menu .menu-link-with-arrow{
+    white-space:nowrap !important;
+  }
+}
+
+/* Recuadros premium uniformes */
+.dark-block{
+  background:var(--panel-bg) !important;
+  border:1px solid var(--panel-border) !important;
+  border-radius:var(--panel-radius) !important;
+  box-shadow:var(--panel-shadow) !important;
+  position:relative;
+  overflow:hidden;
+}
+
+.dark-block::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 18% 0%, rgba(208,163,92,.16), transparent 34%),
+    linear-gradient(135deg, rgba(255,255,255,.06), transparent 28%, rgba(0,0,0,.08));
+  opacity:.9;
+}
+
+.dark-block > *{
+  position:relative;
+  z-index:1;
+}
+
+/* Home: espacios iguales */
+@media (min-width:701px){
+  .quick-reservation-section,
+  .first-bg,
+  .courses-section{
+    padding-top:26px !important;
+    padding-bottom:26px !important;
+    margin-top:0 !important;
+    margin-bottom:0 !important;
+  }
+
+  .quick-reservation-card,
+  .intro-block,
+  .courses-block,
+  .home-services-preview{
+    margin-top:0 !important;
+    margin-bottom:0 !important;
+  }
+
+  .first-bg{
+    background:transparent !important;
+  }
+}
+
+@media (max-width:700px){
+  .quick-reservation-section,
+  .first-bg,
+  .page-bg,
+  .courses-section,
+  .contact-bg{
+    padding-top:12px !important;
+    padding-bottom:12px !important;
+    margin-top:0 !important;
+    margin-bottom:0 !important;
+  }
+
+  .quick-reservation-section,
+  .first-bg,
+  .courses-section,
+  .contact-bg{
+    padding-left:18px !important;
+    padding-right:18px !important;
+  }
+
+  .quick-reservation-card,
+  .intro-block,
+  .courses-block,
+  .home-services-preview,
+  .contact-card{
+    width:100% !important;
+    max-width:100% !important;
+    margin:0 !important;
+    box-sizing:border-box !important;
+  }
+
+  .hero{
+    padding-bottom:30px !important;
+    overflow:hidden !important;
+  }
+}
+
+/* Pagina servicios: hero independiente, sin solape heredado de cursos */
+.services-hero-original{
+  min-height:430px !important;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(14,18,28,.22),
+      rgba(14,18,28,.12) 42%,
+      rgba(238,233,230,0) 72%,
+      rgba(238,233,230,1) 100%
+    ),
+    url('/imagenes_cabeceras/cabecera_color.jpg') !important;
+  background-size:cover !important;
+  background-position:center 36% !important;
+  display:flex !important;
+  justify-content:center !important;
+  align-items:center !important;
+  position:relative !important;
+  z-index:1 !important;
+  overflow:hidden !important;
+  margin:0 !important;
+  padding:0 20px !important;
+}
+
+.services-hero-original::after{
+  display:none !important;
+  content:none !important;
+}
+
+.services-title-badge{
+  margin-top:70px !important;
+  position:relative !important;
+  z-index:30 !important;
+  background:rgba(183,138,67,.88) !important;
+  color:#fff !important;
+  font-family:Cinzel,serif !important;
+  font-size:42px !important;
+  padding:16px 38px !important;
+  min-height:84px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  box-shadow:0 8px 22px rgba(0,0,0,.25) !important;
+}
+
+.services-page-section{
+  background:var(--page) !important;
+  padding:36px 20px 70px !important;
+  margin:0 !important;
+  position:relative !important;
+  z-index:20 !important;
+}
+
+.services-page-section .services-block{
+  width:min(1110px, calc(100% - 40px)) !important;
+  max-width:1110px !important;
+  margin:0 auto !important;
+  padding:46px 54px 54px !important;
+  border-radius:22px !important;
+  overflow:hidden !important;
+  background:var(--panel-bg) !important;
+  border:1px solid var(--panel-border) !important;
+  box-shadow:var(--panel-shadow) !important;
+  color:var(--gold2) !important;
+}
+
+.services-page-section .services-intro{
+  max-width:900px !important;
+  margin:0 auto 38px !important;
+  text-align:center !important;
+  color:var(--gold2) !important;
+  font-family:'Josefin Sans', Arial, sans-serif !important;
+  font-size:18px !important;
+  line-height:1.65 !important;
+}
+
+.services-page-section .services-columns{
+  display:grid !important;
+  grid-template-columns:repeat(3,1fr) !important;
+  gap:24px !important;
+}
+
+.services-page-section .service-col{
+  border-radius:18px !important;
+}
+
+/* Home: boton y resumen de servicios */
+.home-services-preview{
+  margin-top:0 !important;
+}
+
+.home-services-preview .course-card{
+  color:#fff;
+}
+
+.services-preview-actions{
+  display:flex !important;
+  justify-content:center !important;
+  margin-top:28px !important;
+}
+
+.services-preview-btn{
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  min-height:48px !important;
+  padding:14px 26px !important;
+  border-radius:999px !important;
+  background:linear-gradient(135deg,#c79647,#e2b66d) !important;
+  color:#121d31 !important;
+  font-family:Oswald,Arial,sans-serif !important;
+  text-transform:uppercase !important;
+  letter-spacing:1px !important;
+  font-weight:700 !important;
+}
+
+@media (max-width:900px){
+  .services-hero-original{
+    min-height:320px !important;
+  }
+
+  .services-page-section{
+    padding:26px 18px 34px !important;
+  }
+
+  .services-page-section .services-block{
+    width:100% !important;
+    max-width:100% !important;
+    padding:34px 22px 34px !important;
+    border-radius:18px !important;
+  }
+
+  .services-page-section .services-intro{
+    font-size:17px !important;
+    line-height:1.58 !important;
+    margin-bottom:26px !important;
+  }
+
+  .services-page-section .services-columns{
+    grid-template-columns:1fr !important;
+    gap:18px !important;
+  }
+
+  .services-title-badge,
+  .courses-title-badge,
+  .course-child-title-badge,
+  .installations-title-badge,
+  .reservation-title-badge,
+  .about-title-badge{
+    width:auto !important;
+    max-width:92vw !important;
+    min-height:auto !important;
+    padding:14px 22px !important;
+    font-size:26px !important;
+    line-height:1.25 !important;
+    text-align:left !important;
+  }
+}
+@media (max-width: 700px){
+  .installations-video{
+    width: calc(100% - 36px) !important;
+    max-width: calc(100% - 36px) !important;
+    margin-left: 18px !important;
+    margin-right: 18px !important;
+  }
+}
+/* ===== FIX HOME HERO DETALLES VISUALES ===== */
+
+/* Evita que se vea un trocito del botón flotante al inicio */
+.floating-whatsapp{
+  z-index: 999 !important;
+}
+
+/* Desktop: recorta bien el degradado del hero */
+.hero{
+  overflow: hidden !important;
+}
+
+/* Móvil: suaviza la línea del final del degradado */
+@media (max-width:700px){
+  .hero::after{
+    height: 150px !important;
+    bottom: -1px !important;
+  }
+
+  .hero{
+    background-color: var(--page) !important;
+  }
+}
+/* ===== MAS ESPACIO PAGINA NUESTROS CURSOS ===== */
+
+.courses-main-section{
+  padding-top: 56px !important;
+}
+
+@media(max-width:700px){
+  .courses-main-section{
+    padding-top: 42px !important;
+  }
+}
+/* ===== HOME SERVICIOS PREVIEW ===== */
+
+.home-services-preview .course-card h3{
+  color: var(--gold2) !important;
+}
+
+.services-preview-btn{
+  font-size: 14px !important;
+  text-align: center !important;
+  line-height: 1.25 !important;
+  padding: 12px 22px !important;
+}
+
+@media(max-width:700px){
+
+  .services-preview-btn{
+    font-size: 12px !important;
+    letter-spacing: .8px !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+}
+/* ===== TITULOS DORADOS EN CAJAS DE CURSOS ===== */
+
+.course-list article h3{
+  color: var(--gold2) !important;
 }

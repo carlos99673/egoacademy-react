@@ -47,8 +47,8 @@ function Header(){
           <a className="menu-item" href="#/sobre-nosotros">Sobre nosotros</a>
 
           <div className="menu-item menu-dropdown">
-            <a className="menu-link-with-arrow" href="#/nuestros-servicios">
-              Nuestros cursos <span className="arrow">▼</span>
+            <a className="menu-link-with-arrow" href="#/nuestros-cursos">
+                Nuestros cursos <span className="arrow">▼</span>
             </a>
             <div className="submenu">
               <a href="#/cursos-estetica">Estética</a>
@@ -56,9 +56,9 @@ function Header(){
               <a href="#/cursos-avanzados">Peluquería: avanzados</a>
             </div>
           </div>
-
+          <a className="menu-item" href="#/nuestros-servicios">Nuestros servicios</a>
           <a className="menu-item" href="#/instalaciones">Instalaciones</a>
-          <a className="menu-item" href="#/reserva-plaza">Reserva de plaza</a>
+          <a className="menu-item" href="#/reserva-plaza">Contacto / Reservas</a>
         </nav>
         </div>
       </header>
@@ -133,11 +133,10 @@ const services = [
   ]}
 ];
 
-function Services(){
+function Services({ page = false }){
   return (
-    <section className="page-bg">
+    <section className={page ? "services-page-section" : "page-bg"}>
       <div className="dark-block services-block">
-        <h2>Nuestros servicios</h2>
         <p className="services-intro">En nuestro salón, te damos la libertad de elegir la experiencia que mejor se adapte a ti. Puedes optar por realizar tu servicio con uno de nuestros profesionales altamente cualificados o, si lo prefieres, con un alumno en formación a un precio más económico. La decisión es tuya. A continuación, te presentamos nuestros precios para servicios realizados por profesionales:</p>
         <div className="services-columns">
           {services.map(s => (
@@ -152,6 +151,15 @@ function Services(){
             </article>
           ))}
         </div>
+        <div className="seo-text-block">
+  <p>
+    Somos una peluquería en Alcalá de Henares especializada en cortes femeninos, mechas, coloración, tratamientos capilares, manicura y estética profesional.
+  </p>
+
+  <p>
+    En ËGO Academy ofrecemos servicios de peluquería y belleza con precios accesibles y formación profesional para futuros estilistas y especialistas en estética.
+  </p>
+</div>
       </div>
     </section>
   )
@@ -159,13 +167,13 @@ function Services(){
 
 function Courses(){
   return (
-    <section className="page-bg">
+    <section className="page-bg courses-page-section">
       <div className="dark-block courses-block">
         <h2>Nuestros cursos</h2>
         <div className="courses-grid">
-          <a href="#/cursos-estetica"><div className="course-head"><img src={imgHair} alt=""/><h3>Cursos de estética</h3></div><p>Ofrecemos cursos de estética básica y cursos específicos como manicura, pedicura, esmaltado permanente, uñas de gel, depilación, maquillaje...</p></a>
-          <a href="#/cursos-iniciacion"><div className="course-head"><img src={imgColor} alt=""/><h3>Cursos de introducción de peluquería</h3></div><p>Con el curso de iniciación comenzarás a conocer el maravilloso mundo de la peluquería.</p></a>
-          <a href="#/cursos-avanzados"><div className="course-head"><img src={imgBeauty} alt=""/><h3>Cursos avanzados de peluquería</h3></div><p>Destinados a profesionales que buscan continuar su formación y adquirir un nivel superior.</p></a>
+          <a href="#/cursos-estetica"><div className="course-head"><img src={imgHair} alt="Cursos estética baratos Alcalá de Henares"/><h3>Cursos de estética</h3></div><p>Ofrecemos cursos de estética básica y cursos específicos como manicura, pedicura, esmaltado permanente, uñas de gel, depilación, maquillaje...</p></a>
+          <a href="#/cursos-iniciacion"><div className="course-head"><img src={imgColor} alt="Cursos peluquería baratos Alcalá de Henare"/><h3>Cursos de introducción de peluquería</h3></div><p>Con el curso de iniciación comenzarás a conocer el maravilloso mundo de la peluquería.</p></a>
+          <a href="#/cursos-avanzados"><div className="course-head"><img src={imgBeauty} alt="Cursos coloración baratos Alcalá de Henare"/><h3>Cursos avanzados de peluquería</h3></div><p>Destinados a profesionales que buscan continuar su formación y adquirir un nivel superior.</p></a>
         </div>
         <p>*No tendrás que preocuparte de comprar material, ¡puedes utilizar el nuestro!</p>
         <p>**Diploma al finalizar cualquiera de nuestros cursos</p>
@@ -209,9 +217,10 @@ function Home(){
     <>
       <Header/>
       <Hero/>
+      <QuickReservationCta/>
       <Intro/>
-      <Services/>
       <Courses/>
+      <ServicesPreview/>
       <Contact/>
       <Footer/>
       <a className="floating-whatsapp" href={WHATSAPP_URL} target="_blank" rel="noreferrer"><IconWhats/></a>
@@ -220,6 +229,30 @@ function Home(){
 }
 
 
+
+
+function QuickReservationCta(){
+  return (
+    <section className="quick-reservation-section">
+      <div className="quick-reservation-card dark-block">
+        <div>
+          <span className="quick-kicker">Reserva rápida</span>
+          <h2>¿Quieres pedir cita o información?</h2>
+          <p>
+            Elige curso, servicio o una hora preferida y te contestamos para confirmar disponibilidad.
+            También puedes continuar por WhatsApp con el mensaje preparado.
+          </p>
+        </div>
+        <div className="quick-reservation-actions">
+          <a className="quick-main-btn" href="#/reserva-plaza">Reservar ahora</a>
+          <a className="quick-secondary-btn" href={WHATSAPP_URL} target="_blank" rel="noreferrer">
+            Hablar por WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+  )
+}
 
 function PageHero({title, subtitle}) {
   return (
@@ -274,6 +307,56 @@ function AboutPage(){
           <img className="about-bottom-image" src="/sobre-nosotros/peluqueriabn.png" alt="Academia de peluquería y estética Ëgo"/>
         </div>
       </section>
+    </SharedPageShell>
+  )
+}
+
+
+
+function ServicesPreview(){
+  return (
+    <section className="courses-section">
+      <div className="dark-block courses-block home-services-preview">
+        <div className="section-title">
+          <h2>Nuestros servicios</h2>
+          <div className="gold-divider"></div>
+        </div>
+
+        <div className="courses-grid">
+          <article className="course-card">
+            <h3>Corte y peinado</h3>
+            <p>Cortes modernos, peinados y tratamientos profesionales.</p>
+          </article>
+
+          <article className="course-card">
+            <h3>Color y mechas</h3>
+            <p>Coloración, mechas y técnicas actuales adaptadas a ti.</p>
+          </article>
+
+          <article className="course-card">
+            <h3>Estética y belleza</h3>
+            <p>Manicura, pedicura, maquillaje y tratamientos estéticos.</p>
+          </article>
+        </div>
+
+        <div className="services-preview-actions">
+          <a href="#/nuestros-servicios" className="services-preview-btn">
+            Ver precios y servicios completos
+          </a>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function ServicesPage(){
+  return (
+    <SharedPageShell>
+      <section className="services-hero-original">
+        <div className="services-title-badge">NUESTROS SERVICIOS</div>
+      </section>
+
+      <Services page/>
     </SharedPageShell>
   )
 }
@@ -634,13 +717,34 @@ function InstallationsPage(){
 
 function ReservationPage(){
   const [formState, setFormState] = useState({ status: 'idle', message: '' });
+  const [lastWhatsappUrl, setLastWhatsappUrl] = useState('');
+
+  function buildWhatsappUrl(payload){
+    const texto = [
+      'Hola, quiero hacer una reserva desde la web de ËGO Academy:',
+      '',
+      `Nombre: ${payload.nombre || '-'}`,
+      `Teléfono: ${payload.telefono || '-'}`,
+      `Email: ${payload.email || '-'}`,
+      `Tipo: ${payload.tipoReserva || '-'}`,
+      `Curso/servicio: ${payload.curso || '-'}`,
+      `Fecha preferida: ${payload.fecha || '-'}`,
+      `Hora preferida: ${payload.hora || '-'}`,
+      '',
+      `Mensaje: ${payload.mensaje || 'Sin mensaje adicional.'}`
+    ].join('\n');
+
+    return `https://wa.me/34659614980?text=${encodeURIComponent(texto)}`;
+  }
 
   async function handleReservationSubmit(event){
     event.preventDefault();
     const form = event.currentTarget;
     const formData = new FormData(form);
     const payload = Object.fromEntries(formData.entries());
+    const whatsappUrl = buildWhatsappUrl(payload);
 
+    setLastWhatsappUrl(whatsappUrl);
     setFormState({ status: 'sending', message: 'Enviando reserva...' });
 
     try {
@@ -656,11 +760,16 @@ function ReservationPage(){
         throw new Error(result.error || 'No se ha podido enviar la reserva.');
       }
 
-      form.reset();
       setFormState({
         status: 'success',
-        message: 'Reserva enviada correctamente. Te contactaremos lo antes posible.'
+        message: 'Reserva enviada correctamente. Ahora puedes continuar por WhatsApp para agilizar la confirmación.'
       });
+
+      setTimeout(() => {
+        window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+      }, 350);
+
+      form.reset();
     } catch (error) {
       setFormState({
         status: 'error',
@@ -672,14 +781,15 @@ function ReservationPage(){
   return (
     <SharedPageShell>
       <section className="reservation-hero-original">
-        <div className="reservation-title-badge">RESERVA DE PLAZA</div>
+        <div className="reservation-title-badge">CONTACTO / RESERVAS</div>
       </section>
 
       <section className="reservation-main-section">
         <div className="dark-block reservation-original-card">
-          <h2>Reserva Online</h2>
+          <span className="reservation-kicker">Sistema rápido de cita</span>
+          <h2>Reserva o pide información</h2>
           <p className="reservation-intro">
-            Rellena el formulario y nos pondremos en contacto contigo para confirmar disponibilidad, resolver dudas y formalizar tu reserva.
+            Rellena el formulario, recibiremos tu solicitud por email y se abrirá WhatsApp con el mensaje preparado para confirmar disponibilidad más rápido.
           </p>
 
           <form
@@ -688,31 +798,71 @@ function ReservationPage(){
           >
             <input type="text" name="website" tabIndex="-1" autoComplete="off" className="form-honeypot" aria-hidden="true" />
 
-            <label>
-              Nombre y apellidos
-              <input name="nombre" required placeholder="Tu nombre" autoComplete="name" />
-            </label>
+            <div className="reservation-form-grid">
+              <label>
+                Nombre y apellidos
+                <input name="nombre" required placeholder="Tu nombre" autoComplete="name" />
+              </label>
+
+              <label>
+                Teléfono
+                <input name="telefono" required placeholder="Tu teléfono" autoComplete="tel" />
+              </label>
+            </div>
 
             <label>
               Email
               <input name="email" type="email" required placeholder="tu@email.com" autoComplete="email" />
             </label>
 
-            <label>
-              Teléfono
-              <input name="telefono" required placeholder="Tu teléfono" autoComplete="tel" />
-            </label>
+            <div className="reservation-form-grid">
+              <label>
+                Tipo de reserva
+                <select name="tipoReserva" required defaultValue="">
+                  <option value="" disabled>Selecciona una opción</option>
+                  <option>Curso / formación</option>
+                  <option>Peluquería</option>
+                  <option>Estética y belleza</option>
+                  <option>Consulta general</option>
+                </select>
+              </label>
 
-            <label>
-              Curso o servicio de interés
-              <select name="curso" required defaultValue="">
-                <option value="" disabled>Selecciona una opción</option>
-                <option>Cursos de estética</option>
-                <option>Peluquería: iniciación</option>
-                <option>Peluquería: avanzados</option>
-                <option>Servicios de salón</option>
-              </select>
-            </label>
+              <label>
+                Curso o servicio de interés
+                <select name="curso" required defaultValue="">
+                  <option value="" disabled>Selecciona una opción</option>
+                  <option>Cursos de estética</option>
+                  <option>Peluquería: iniciación</option>
+                  <option>Peluquería: avanzados</option>
+                  <option>Corte / peinado</option>
+                  <option>Color / mechas</option>
+                  <option>Uñas / estética</option>
+                  <option>Información general</option>
+                </select>
+              </label>
+            </div>
+
+            <div className="reservation-form-grid">
+              <label>
+                Fecha preferida
+                <input name="fecha" type="date" />
+              </label>
+
+              <label>
+                Hora preferida
+                <select name="hora" defaultValue="">
+                  <option value="">Sin preferencia</option>
+                  <option>10:00</option>
+                  <option>11:00</option>
+                  <option>12:00</option>
+                  <option>13:00</option>
+                  <option>16:00</option>
+                  <option>17:00</option>
+                  <option>18:00</option>
+                  <option>19:00</option>
+                </select>
+              </label>
+            </div>
 
             <label>
               Mensaje
@@ -720,8 +870,14 @@ function ReservationPage(){
             </label>
 
             <button type="submit" disabled={formState.status === 'sending'}>
-              {formState.status === 'sending' ? 'Enviando...' : 'Enviar reserva'}
+              {formState.status === 'sending' ? 'Enviando...' : 'Enviar y continuar por WhatsApp'}
             </button>
+
+            {lastWhatsappUrl && formState.status !== 'sending' && (
+              <a className="reservation-whatsapp-link" href={lastWhatsappUrl} target="_blank" rel="noreferrer">
+                Abrir WhatsApp manualmente
+              </a>
+            )}
 
             {formState.message && (
               <p className={`form-feedback ${formState.status === 'success' ? 'is-success' : formState.status === 'error' ? 'is-error' : ''}`}>
@@ -817,7 +973,8 @@ function App(){
   }, []);
 
   if(path === '/sobre-nosotros') return <AboutPage/>
-  if(path === '/nuestros-servicios') return <CoursesPage/>
+  if(path === '/nuestros-servicios') return <ServicesPage/>
+  if(path === '/nuestros-cursos') return <CoursesPage/>
   if(path === '/cursos-estetica') return <CourseEsteticaPage/>
   if(path === '/cursos-iniciacion') return <CourseIniciacionPage/>
   if(path === '/cursos-avanzados') return <CourseAvanzadosPage/>

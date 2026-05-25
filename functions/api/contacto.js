@@ -31,6 +31,9 @@ function buildEmailContent(form) {
   const email = escapeHtml(form.email);
   const telefono = escapeHtml(form.telefono);
   const curso = escapeHtml(form.curso);
+  const tipoReserva = escapeHtml(form.tipoReserva || 'No indicado');
+  const fecha = escapeHtml(form.fecha || 'Sin preferencia');
+  const hora = escapeHtml(form.hora || 'Sin preferencia');
   const mensaje = escapeHtml(form.mensaje || 'Sin mensaje adicional.').replaceAll('\n', '<br>');
 
   return `
@@ -45,7 +48,10 @@ function buildEmailContent(form) {
             <tr><td style="font-weight:bold;width:160px">Nombre</td><td>${nombre}</td></tr>
             <tr><td style="font-weight:bold">Email</td><td>${email}</td></tr>
             <tr><td style="font-weight:bold">Teléfono</td><td>${telefono}</td></tr>
+            <tr><td style="font-weight:bold">Tipo</td><td>${tipoReserva}</td></tr>
             <tr><td style="font-weight:bold">Curso/servicio</td><td>${curso}</td></tr>
+            <tr><td style="font-weight:bold">Fecha preferida</td><td>${fecha}</td></tr>
+            <tr><td style="font-weight:bold">Hora preferida</td><td>${hora}</td></tr>
             <tr><td style="font-weight:bold;vertical-align:top">Mensaje</td><td>${mensaje}</td></tr>
           </table>
         </div>
