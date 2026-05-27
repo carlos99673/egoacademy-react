@@ -812,7 +812,7 @@ function ReservationPage(){
 
             <label>
               Email
-              <input name="email" type="email" placeholder="tu@email.com" autoComplete="email" />
+              <input name="email" type="email" required placeholder="tu@email.com" autoComplete="email" />
             </label>
 
             <div className="reservation-form-grid">
