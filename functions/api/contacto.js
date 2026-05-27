@@ -135,7 +135,7 @@ export async function onRequestPost(context) {
       return jsonResponse({ ok: false, error: 'Faltan campos obligatorios.' }, 400);
     }
 
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+    if (form.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
       return jsonResponse({ ok: false, error: 'El email no tiene un formato válido.' }, 400);
     }
 
