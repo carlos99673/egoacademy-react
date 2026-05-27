@@ -131,7 +131,7 @@ export async function onRequestPost(context) {
       mensaje: normalize(body.mensaje)
     };
 
-    if (!form.nombre || !form.email || !form.telefono || !form.curso) {
+    if (!form.nombre || !form.telefono || !form.curso) {
       return jsonResponse({ ok: false, error: 'Faltan campos obligatorios.' }, 400);
     }
 
