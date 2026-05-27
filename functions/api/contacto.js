@@ -1,5 +1,5 @@
 const BREVO_API_URL = 'https://api.brevo.com/v3/smtp/email';
-const DEFAULT_MAIL_TO = 'info@egoacademy.es';
+const DEFAULT_MAIL_TO = 'egoacademy12@gmail.com';
 const DEFAULT_MAIL_FROM = 'info@egoacademy.es';
 const DEFAULT_FROM_NAME = 'ËGO Academy Web';
 

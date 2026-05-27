@@ -30,7 +30,7 @@ function Header(){
           </div>
           <div className="top-right">
             <span><IconInfo/> Atención telefónica de 9:00 a 16:00</span>
-            <a href="mailto:info@egoacademy.es"><IconMail/> info@egoacademy.es</a>
+            <a href="mailto:egoacademy12@gmail.com"><IconMail/> egoacademy12@gmail.com</a>
             <a href="tel:+34659614980"><IconPhone/> +34 659614980</a>
           </div>
         </div>
@@ -195,7 +195,7 @@ function Contact(){
             <div><h3>WHATSAPP</h3><p><a className="mini-whatsapp" href={WHATSAPP_URL} target="_blank" rel="noreferrer"><IconWhats/></a></p></div>
           </div>
           <h3>ESCRÍBENOS</h3>
-          <p><a href="mailto:info@egoacademy.es">info@egoacademy.es</a></p>
+          <p><a href="mailto:egoacademy12@gmail.com">egoacademy12@gmail.com</a></p>
           <h2>HORARIO</h2>
           <h3>LUNES - VIERNES</h3>
           <p>9:15- 16:00</p>
@@ -812,7 +812,7 @@ function ReservationPage(){
 
             <label>
               Email
-              <input name="email" type="email" required placeholder="tu@email.com" autoComplete="email" />
+              <input name="email" type="email" placeholder="tu@email.com" autoComplete="email" />
             </label>
 
             <div className="reservation-form-grid">
@@ -852,14 +852,17 @@ function ReservationPage(){
                 Hora preferida
                 <select name="hora" defaultValue="">
                   <option value="">Sin preferencia</option>
+                  <option>09:00</option>
+                  <option>09:30</option>
                   <option>10:00</option>
+                  <option>10:30</option>
                   <option>11:00</option>
+                  <option>11:30</option>
                   <option>12:00</option>
+                  <option>12:30</option>
                   <option>13:00</option>
-                  <option>16:00</option>
-                  <option>17:00</option>
-                  <option>18:00</option>
-                  <option>19:00</option>
+                  <option>13:30</option>
+                  <option>14:00</option>
                 </select>
               </label>
             </div>
@@ -887,7 +890,7 @@ function ReservationPage(){
           </form>
 
           <p className="reservation-note">
-            También puedes escribirnos directamente a <a href="mailto:info@egoacademy.es">info@egoacademy.es</a> o llamarnos al <a href="tel:+34659614980">659614980</a>.
+            También puedes escribirnos directamente a <a href="mailto:egoacademy12@gmail.com">egoacademy12@gmail.com</a> o llamarnos al <a href="tel:+34659614980">659614980</a>.
           </p>
         </div>
       </section>
