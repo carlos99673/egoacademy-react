@@ -131,11 +131,11 @@ export async function onRequestPost(context) {
       mensaje: normalize(body.mensaje)
     };
 
-    if (!form.nombre || !form.telefono || !form.curso) {
+    if (!form.nombre || !form.email || !form.telefono || !form.curso) {
       return jsonResponse({ ok: false, error: 'Faltan campos obligatorios.' }, 400);
     }
 
-    if (form.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
       return jsonResponse({ ok: false, error: 'El email no tiene un formato válido.' }, 400);
     }
 
