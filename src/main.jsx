@@ -38,27 +38,27 @@ function Header(){
 
       <header className="header">
         <div className="header-inner">
-          <a className="brand" href="#/">
+          <a className="brand" href="/">
             <span className="script-logo small">ËGO</span>
             <span className="brand-sub">ACADEMY Hair & Beauty</span>
           </a>
           <nav className="menu">
-          <a className="menu-item" href="#/">Inicio</a>
-          <a className="menu-item" href="#/sobre-nosotros">Sobre nosotros</a>
+          <a className="menu-item" href="/">Inicio</a>
+          <a className="menu-item" href="/sobre-nosotros">Sobre nosotros</a>
 
           <div className="menu-item menu-dropdown">
-            <a className="menu-link-with-arrow" href="#/nuestros-cursos">
+            <a className="menu-link-with-arrow" href="/nuestros-cursos">
                 Nuestros cursos <span className="arrow">▼</span>
             </a>
             <div className="submenu">
-              <a href="#/cursos-estetica">Estética</a>
-              <a href="#/cursos-iniciacion">Peluquería: iniciación</a>
-              <a href="#/cursos-avanzados">Peluquería: avanzados</a>
+              <a href="/cursos-estetica">Estética</a>
+              <a href="/cursos-iniciacion">Peluquería: iniciación</a>
+              <a href="/cursos-avanzados">Peluquería: avanzados</a>
             </div>
           </div>
-          <a className="menu-item" href="#/nuestros-servicios">Nuestros servicios</a>
-          <a className="menu-item" href="#/instalaciones">Instalaciones</a>
-          <a className="menu-item" href="#/reserva-plaza">Contacto / Reservas</a>
+          <a className="menu-item" href="/nuestros-servicios">Nuestros servicios</a>
+          <a className="menu-item" href="/instalaciones">Instalaciones</a>
+          <a className="menu-item" href="/reserva-plaza">Contacto / Reservas</a>
         </nav>
         </div>
       </header>
@@ -171,9 +171,9 @@ function Courses(){
       <div className="dark-block courses-block">
         <h2>Nuestros cursos</h2>
         <div className="courses-grid">
-          <a href="#/cursos-estetica"><div className="course-head"><img src={imgHair} alt="Cursos estética baratos Alcalá de Henares"/><h3>Cursos de estética</h3></div><p>Ofrecemos cursos de estética básica y cursos específicos como manicura, pedicura, esmaltado permanente, uñas de gel, depilación, maquillaje...</p></a>
-          <a href="#/cursos-iniciacion"><div className="course-head"><img src={imgColor} alt="Cursos peluquería baratos Alcalá de Henare"/><h3>Cursos de introducción de peluquería</h3></div><p>Con el curso de iniciación comenzarás a conocer el maravilloso mundo de la peluquería.</p></a>
-          <a href="#/cursos-avanzados"><div className="course-head"><img src={imgBeauty} alt="Cursos coloración baratos Alcalá de Henare"/><h3>Cursos avanzados de peluquería</h3></div><p>Destinados a profesionales que buscan continuar su formación y adquirir un nivel superior.</p></a>
+          <a href="/cursos-estetica"><div className="course-head"><img src={imgHair} alt="Cursos estética baratos Alcalá de Henares"/><h3>Cursos de estética</h3></div><p>Ofrecemos cursos de estética básica y cursos específicos como manicura, pedicura, esmaltado permanente, uñas de gel, depilación, maquillaje...</p></a>
+          <a href="/cursos-iniciacion"><div className="course-head"><img src={imgColor} alt="Cursos peluquería baratos Alcalá de Henare"/><h3>Cursos de introducción de peluquería</h3></div><p>Con el curso de iniciación comenzarás a conocer el maravilloso mundo de la peluquería.</p></a>
+          <a href="/cursos-avanzados"><div className="course-head"><img src={imgBeauty} alt="Cursos coloración baratos Alcalá de Henare"/><h3>Cursos avanzados de peluquería</h3></div><p>Destinados a profesionales que buscan continuar su formación y adquirir un nivel superior.</p></a>
         </div>
         <p>*No tendrás que preocuparte de comprar material, ¡puedes utilizar el nuestro!</p>
         <p>**Diploma al finalizar cualquiera de nuestros cursos</p>
@@ -244,7 +244,7 @@ function QuickReservationCta(){
           </p>
         </div>
         <div className="quick-reservation-actions">
-          <a className="quick-main-btn" href="#/reserva-plaza">Reservar ahora</a>
+          <a className="quick-main-btn" href="/reserva-plaza">Reservar ahora</a>
           <a className="quick-secondary-btn" href={WHATSAPP_URL} target="_blank" rel="noreferrer">
             Hablar por WhatsApp
           </a>
@@ -340,7 +340,7 @@ function ServicesPreview(){
         </div>
 
         <div className="services-preview-actions">
-          <a href="#/nuestros-servicios" className="services-preview-btn">
+          <a href="/nuestros-servicios" className="services-preview-btn">
             Ver precios y servicios completos
           </a>
         </div>
@@ -379,21 +379,21 @@ function CoursesPage(){
           <h2>Nuestros cursos</h2>
 
           <div className="course-detail-grid courses-home-grid">
-            <a href="#/cursos-estetica" className="course-detail-card">
+            <a href="/cursos-estetica" className="course-detail-card">
               <img src={imgBeauty} alt="Cursos de estética"/>
               <h3>Cursos de estética</h3>
               <p>Ofrecemos cursos de estética básica y cursos específicos como manicura, pedicura, esmaltado permanente, uñas de gel, depilación y maquillaje.</p>
               <strong>Desde 50 €</strong>
             </a>
 
-            <a href="#/cursos-iniciacion" className="course-detail-card">
+            <a href="/cursos-iniciacion" className="course-detail-card">
               <img src={imgHair} alt="Peluquería iniciación"/>
               <h3>Peluquería: iniciación</h3>
               <p>Curso pensado para empezar desde cero y conocer el mundo de la peluquería, tanto por hobby como para aprender una nueva profesión.</p>
               <strong>100 €/mes</strong>
             </a>
 
-            <a href="#/cursos-avanzados" className="course-detail-card">
+            <a href="/cursos-avanzados" className="course-detail-card">
               <img src={imgColor} alt="Peluquería avanzados"/>
               <h3>Peluquería: avanzados</h3>
               <p>Formaciones específicas para profesionales que quieren perfeccionar técnicas y ampliar conocimientos.</p>
@@ -963,17 +963,17 @@ function Placeholder(){
 }
 
 function App(){
-  const [path, setPath] = useState(window.location.hash.replace('#','') || '/');
+  const [path, setPath] = useState(window.location.pathname || '/');
 
   useEffect(() => {
-    const onHashChange = () => {
-      setPath(window.location.hash.replace('#','') || '/');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
+  const onPopState = () => {
+    setPath(window.location.pathname || '/');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
-    window.addEventListener('hashchange', onHashChange);
-    return () => window.removeEventListener('hashchange', onHashChange);
-  }, []);
+  window.addEventListener('popstate', onPopState);
+  return () => window.removeEventListener('popstate', onPopState);
+}, []);
 
   if(path === '/sobre-nosotros') return <AboutPage/>
   if(path === '/nuestros-servicios') return <ServicesPage/>
